@@ -1,0 +1,76 @@
+@import "../../styles/variable";
+@import "../../styles/mixin";
+
+.sidebar__container {
+  width: 260px;
+  height: 100%;
+  background-color: $white;
+}
+
+.sidebar__userDetails {
+  @include flexbox;
+  @include gap(10px);
+  padding: 10px;
+
+  div {
+    p {
+      color: $gray;
+      font-weight: bold;
+      font-size: 17px;
+      margin-bottom: 5px;
+    }
+    h3 {
+      color: $purple;
+      font-size: 19px;
+    }
+  }
+}
+
+.siderbar__divider {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-top: 3px solid $purple;
+}
+.MuiAvatar-root {
+  background-color: $purple !important;
+}
+
+.sidebar__menu {
+  .sidebar__menuItem {
+    list-style: none;
+    display: inline-block;
+    margin-bottom: 20px;
+    cursor: pointer;
+    div {
+      @include flexbox;
+      @include align_items(center);
+      @include gap(20px);
+      span {
+        font-size: 18px;
+        color: $gray;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.sidebar__menuIcon {
+  color: $violate;
+}
+
+.sidebar__taskTypeContainer {
+  margin-left: 30px;
+  margin-top: 15px;
+  list-style: none;
+}
+.sidebar__taskType {
+  @include flexbox;
+  @include align_items(center);
+  @include gap(10px);
+  margin-bottom: 10px;
+  span {
+    font-size: 17px;
+    color: $gray;
+    font-weight: 700;
+  }
+}
