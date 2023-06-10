@@ -1,6 +1,7 @@
 import Sidebar from "../Sidebar/Sidebar";
 import "./style.scss";
 import { Grid } from "@mui/material";
+import Main from "../Main/Main";
 const Layout = () => {
   return (
     <>
@@ -8,7 +9,7 @@ const Layout = () => {
         <Grid item className="layout__container">
           <div className="layout__skyCircle"></div>
           <Sidebar />
-          <main className="layout__mainContainer">Main</main>
+          <Main />
           <div className="layout__yellowCircle"></div>
           <div className="layout__peachCircle"></div>
         </Grid>

@@ -1,0 +1,50 @@
+@import "../../styles/variable";
+@import "../../styles/mixin";
+
+.input__container {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.input__todoContainer {
+  position: relative;
+}
+
+.input__todo {
+  width: 90%;
+  padding: 20px 5px 20px 100px;
+  outline: 0;
+  border: 0;
+  border-radius: 12px;
+  color: $gray;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.input__taskTypeIcons {
+  padding-left: 10px;
+  @include flexbox;
+  @include gap(10px);
+  position: absolute;
+  left: 10px; /* Adjust the left position as needed */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.input__iconsContainer {
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  button {
+    background: transparent;
+    border: 0;
+    outline: 0;
+  }
+}
+
+.input__icon {
+  color: $violate;
+  font-size: 1.7rem !important;
+  margin-right: 10px;
+  cursor: pointer;
+}
