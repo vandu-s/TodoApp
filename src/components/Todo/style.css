@@ -1,0 +1,34 @@
+.todo__container {
+  width: 90%;
+  background-color: #ffffff;
+  padding: 18px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.todo__contains {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.todo__contains p {
+  color: #717082;
+  font-weight: bold;
+}
+
+.todo__value {
+  width: 450px;
+}
+
+.todo__icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.todo__icon {
+  color: #ca8bfe;
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */

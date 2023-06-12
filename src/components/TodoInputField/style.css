@@ -1,10 +1,8 @@
-@import "../../styles/variable";
-@import "../../styles/mixin";
-
 .input__container {
   margin-top: 20px;
   margin-bottom: 50px;
 }
+
 .input__todoContainer {
   position: relative;
 }
@@ -15,15 +13,15 @@
   outline: 0;
   border: 0;
   border-radius: 12px;
-  color: $gray;
+  color: #717082;
   font-size: 17px;
   font-weight: 600;
 }
 
 .input__taskTypeIcons {
   padding-left: 10px;
-  @include flexbox;
-  @include gap(10px);
+  display: flex;
+  gap: 10px;
   position: absolute;
   left: 10px; /* Adjust the left position as needed */
   top: 50%;
@@ -38,7 +36,7 @@
 }
 
 .input__icon {
-  color: $violate;
+  color: #ca8bfe;
   font-size: 1.7rem !important;
   margin-right: 10px;
   cursor: pointer;
@@ -47,5 +45,5 @@
 .input__taskIcon {
   width: 18px !important;
   height: 18px !important;
-  color: $peach;
-}
+  color: #ea96af;
+}/*# sourceMappingURL=style.css.map */
