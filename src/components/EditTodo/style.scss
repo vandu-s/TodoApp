@@ -1,2 +1,41 @@
 @import "../../styles/variable";
 @import "../../styles/mixin";
+.todoEdit__container {
+  width: 90%;
+  background-color: #ffffff;
+  padding: 12px 18px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.todoEdit__contains {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.todoEdit__contains p {
+  color: #717082;
+  font-weight: bold;
+}
+
+.todoEdit__value {
+  width: 450px;
+}
+
+.todoEdit__icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.todoEdit__icon {
+  color: #ca8bfe;
+  cursor: pointer;
+} /*# sourceMappingURL=style.css.map */
+
+.todoEdit__input {
+  padding: 12px 18px;
+  width: 80%;
+}
