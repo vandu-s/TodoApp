@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { Avatar } from "@mui/material";
 import TaskIcon from "@mui/icons-material/Task";
 import AssignmentIcon from "@mui/icons-material/Assignment";
@@ -11,6 +10,11 @@ import "./style.scss";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
+
+  const handleFilterTodos = (filterType) => {
+    dispatch(filterTodos(filterType));
+  };
+
   return (
     <div className="sidebar__container">
       <div className="sidebar__userDetails">
@@ -40,21 +44,21 @@ const Sidebar = () => {
 
               <li
                 className="sidebar__taskType"
-                onClick={() => dispatch(filterTodos("personal"))}
+                onClick={() => handleFilterTodos("personal")}
               >
                 <CircleIcon className="circle personal__task" />
                 <span>Personal</span>
               </li>
               <li
                 className="sidebar__taskType"
-                onClick={() => dispatch(filterTodos("Freelance"))}
+                onClick={() => handleFilterTodos("Freelance")}
               >
                 <CircleIcon className="circle freelance__task" />
-                <span>Freelace</span>
+                <span>Freelance</span>
               </li>
               <li
                 className="sidebar__taskType"
-                onClick={() => dispatch(filterTodos("Work"))}
+                onClick={() => handleFilterTodos("Work")}
               >
                 <CircleIcon className="circle work__task" />
                 <span>Work</span>

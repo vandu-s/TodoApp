@@ -21,8 +21,20 @@ export const todoListSlice = createSlice({
       );
     },
     filterTodos: (state, action) => {
-      const taskType = action.payload;
-      const filteredTodos = state.filter((todo) => todo.taskType === taskType);
+      const filterType = action.payload;
+      // Implement your filtering logic based on filterType
+      let filteredTodos = [];
+
+      if (filterType === "personal") {
+        filteredTodos = state.filter((todo) => todo.taskType === "personal");
+      } else if (filterType === "Freelance") {
+        filteredTodos = state.filter((todo) => todo.taskType === "Freelance");
+      } else if (filterType === "Work") {
+        filteredTodos = state.filter((todo) => todo.taskType === "Work");
+      } else {
+        filteredTodos = state; // No filter, return all todos
+      }
+
       return filteredTodos;
     },
   },

@@ -4,8 +4,12 @@ import TodoList from "../TodoList/TodoList";
 import "./style.scss";
 
 const Main = () => {
+  const timestamp = new Date().getTime().toString();
+  const randomString = Math.random().toString(36).substring(2, 8);
+  const uniqueId = timestamp + randomString;
+
   const initialState = {
-    id: new Date().getTime().toString(),
+    id: uniqueId,
     task: "",
     time: "",
     date: "",
