@@ -4,15 +4,13 @@ import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import SendIcon from "@mui/icons-material/Send";
 import { addTodo } from "../../features/slices/todoListSlice";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import CircleIcon from "@mui/icons-material/Circle";
 import { useDispatch } from "react-redux";
-import Tooltip from "@mui/material/Tooltip";
-
+import TaskTypeIcons from "../TaskTypeIcons/TaskTypeIcons";
+import catergory from "../../util/appUtil";
 import "./style.scss";
 
 const TodoInputField = ({ todo, setTodo, initialState }) => {
-  const [checked, setChecked] = useState("personal");
+  const [checked, setChecked] = useState(catergory.PERSONAL);
   const dispatch = useDispatch();
 
   const handleTaskType = (type) => {
@@ -23,7 +21,7 @@ const TodoInputField = ({ todo, setTodo, initialState }) => {
     e.preventDefault();
     dispatch(addTodo(todo));
     setTodo(initialState);
-    setChecked("personal");
+    setChecked(catergory.PERSONAL);
   };
 
   return (
@@ -31,43 +29,7 @@ const TodoInputField = ({ todo, setTodo, initialState }) => {
       <form onSubmit={handleSubmit}>
         <div className="input__todoContainer">
           <div className="input__taskTypeIcons">
-            {checked === "personal" ? (
-              <Tooltip title="personal">
-                <CheckCircleIcon className="checked__circleIcon personal__task" />
-              </Tooltip>
-            ) : (
-              <Tooltip title="personal">
-                <CircleIcon
-                  className="circle personal__task"
-                  onClick={() => handleTaskType("personal")}
-                />
-              </Tooltip>
-            )}
-            {checked === "Freelance" ? (
-              <Tooltip title="Freelance">
-                <CheckCircleIcon className="checked__circleIcon freelance__task" />
-              </Tooltip>
-            ) : (
-              <Tooltip title="Freelance">
-                <CircleIcon
-                  className="circle freelance__task"
-                  onClick={() => handleTaskType("Freelance")}
-                />
-              </Tooltip>
-            )}
-
-            {checked === "Work" ? (
-              <Tooltip title="Work">
-                <CheckCircleIcon className="checked__circleIcon work__task" />
-              </Tooltip>
-            ) : (
-              <Tooltip title="Work">
-                <CircleIcon
-                  className="circle work__task"
-                  onClick={() => handleTaskType("Work")}
-                />
-              </Tooltip>
-            )}
+            <TaskTypeIcons checked={checked} handleTaskType={handleTaskType} />
           </div>
           <input
             type="text"

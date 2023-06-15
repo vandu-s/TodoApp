@@ -1,46 +1,43 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [];
+const initialState = {
+  data: [],
+  todos: [],
+};
 
 export const todoListSlice = createSlice({
   name: "todoList",
   initialState,
   reducers: {
-    getTodos: (state) => {
-      return state;
-    },
     addTodo: (state, action) => {
-      state.push(action.payload);
+      state.data.push(action.payload);
+      state.todos.push(action.payload);
     },
     deleteTodo: (state, action) => {
-      return state.filter((todo) => todo.id != action.payload.id);
+      state.data = state.data.filter((todo) => todo.id != action.payload.id);
+      state.todos = state.todos.filter((todo) => todo.id != action.payload.id);
     },
     updateTodo: (state, action) => {
-      return state.map((todo) =>
-        todo.id === action.payload.id ? { ...todo, ...action.payload } : todo
+      const updatedTodo = action.payload;
+      state.data = state.data.map((todo) =>
+        todo.id === updatedTodo.id ? { ...todo, ...action.payload } : todo
+      );
+      state.todos = state.todos.map((todo) =>
+        todo.id === updatedTodo.id ? { ...todo, ...action.payload } : todo
       );
     },
     filterTodos: (state, action) => {
-      const filterType = action.payload;
-      // Implement your filtering logic based on filterType
-      let filteredTodos = [];
-
-      if (filterType === "personal") {
-        filteredTodos = state.filter((todo) => todo.taskType === "personal");
-      } else if (filterType === "Freelance") {
-        filteredTodos = state.filter((todo) => todo.taskType === "Freelance");
-      } else if (filterType === "Work") {
-        filteredTodos = state.filter((todo) => todo.taskType === "Work");
+      const taskType = action.payload;
+      if (taskType.toLowerCase() === "all") {
+        state.todos = state.data;
       } else {
-        filteredTodos = state; // No filter, return all todos
+        state.todos = state.data.filter((todo) => todo.taskType === taskType);
       }
-
-      return filteredTodos;
     },
   },
 });
 
-export const { addTodo, deleteTodo, updateTodo, filterTodos, getTodos } =
+export const { addTodo, deleteTodo, updateTodo, filterTodos } =
   todoListSlice.actions;
 
 export default todoListSlice.reducer;

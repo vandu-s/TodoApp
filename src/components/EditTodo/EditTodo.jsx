@@ -5,13 +5,20 @@ import CloseIcon from "@mui/icons-material/Close";
 import { IconButton, Tooltip } from "@mui/material";
 import { updateTodo } from "../../features/slices/todoListSlice";
 import { useDispatch } from "react-redux";
+import TaskTypeIcons from "../TaskTypeIcons/TaskTypeIcons";
+import catergory from "../../util/appUtil";
 
 import "./style.scss";
 
 const EditTodo = ({ id, task, setIsEdit }) => {
   const dispatch = useDispatch();
   const [newTask, setNewTask] = useState(task);
+  const [checked, setChecked] = useState(catergory.PERSONAL);
   const inputRef = useRef(null);
+
+  const handleTaskType = (type) => {
+    setChecked(type);
+  };
 
   useEffect(() => {
     inputRef.current.focus();
@@ -21,6 +28,7 @@ const EditTodo = ({ id, task, setIsEdit }) => {
     const updatedTodo = {
       id: id,
       task: newTask,
+      taskType: checked,
     };
     dispatch(updateTodo(updatedTodo));
     setIsEdit(false);
@@ -33,6 +41,7 @@ const EditTodo = ({ id, task, setIsEdit }) => {
     <div className="todoEdit__container">
       <form onSubmit={() => handleEditTodo(id)}>
         <div className="todoEdit__contains">
+          <TaskTypeIcons checked={checked} handleTaskType={handleTaskType} />
           <input
             type="text"
             name="task"

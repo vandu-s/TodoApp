@@ -1,17 +1,22 @@
+import { useState } from "react";
 import { Avatar } from "@mui/material";
 import TaskIcon from "@mui/icons-material/Task";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import SettingsIcon from "@mui/icons-material/Settings";
 import CircleIcon from "@mui/icons-material/Circle";
 import { IconButton } from "@mui/material";
-import { filterTodos, getTodos } from "../../features/slices/todoListSlice";
+import { filterTodos } from "../../features/slices/todoListSlice";
 import { useDispatch } from "react-redux";
+import category from "../../util/appUtil";
+
 import "./style.scss";
 
 const Sidebar = () => {
+  const [active, setActive] = useState("all");
   const dispatch = useDispatch();
 
   const handleFilterTodos = (filterType) => {
+    setActive(filterType);
     dispatch(filterTodos(filterType));
   };
 
@@ -35,30 +40,38 @@ const Sidebar = () => {
             </div>
             <ul className="sidebar__taskTypeContainer">
               <li
-                className="sidebar__taskType"
-                onClick={() => dispatch(getTodos())}
+                className={`${
+                  active === "all" ? "active" : ""
+                } sidebar__taskType`}
+                onClick={() => handleFilterTodos("all")}
               >
                 <CircleIcon className="circle all__task" />
                 <span>All</span>
               </li>
 
               <li
-                className="sidebar__taskType"
-                onClick={() => handleFilterTodos("personal")}
+                onClick={() => handleFilterTodos(category.PERSONAL)}
+                className={`${
+                  active === category.PERSONAL ? "active" : ""
+                } sidebar__taskType`}
               >
                 <CircleIcon className="circle personal__task" />
                 <span>Personal</span>
               </li>
               <li
-                className="sidebar__taskType"
-                onClick={() => handleFilterTodos("Freelance")}
+                className={`${
+                  active === category.FREELANCE ? "active" : ""
+                } sidebar__taskType`}
+                onClick={() => handleFilterTodos(category.FREELANCE)}
               >
                 <CircleIcon className="circle freelance__task" />
                 <span>Freelance</span>
               </li>
               <li
-                className="sidebar__taskType"
-                onClick={() => handleFilterTodos("Work")}
+                className={`${
+                  active === category.WORK ? "active" : ""
+                } sidebar__taskType`}
+                onClick={() => handleFilterTodos(category.WORK)}
               >
                 <CircleIcon className="circle work__task" />
                 <span>Work</span>

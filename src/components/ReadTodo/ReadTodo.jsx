@@ -5,6 +5,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import { IconButton, Tooltip } from "@mui/material";
+import catergory from "../../util/appUtil";
 
 const ReadTodo = ({
   id,
@@ -17,16 +18,15 @@ const ReadTodo = ({
 }) => {
   return (
     <>
-      {" "}
       <div className="todo__container">
         <div className="todo__contains">
           <CircleIcon
             className={`${
-              taskType === "personal"
+              taskType === catergory.PERSONAL
                 ? "personal__task"
-                : taskType === "Work"
+                : taskType === catergory.WORK
                 ? "work__task"
-                : taskType === "Freelance"
+                : taskType === catergory.FREELANCE
                 ? "freelance__task"
                 : ""
             } circle`}
