@@ -11,6 +11,15 @@ import "./style.scss";
 
 const TodoInputField = ({ todo, setTodo, initialState }) => {
   const [checked, setChecked] = useState(catergory.PERSONAL);
+  const [time, setTime] = useState({
+    isEnable: false,
+    value: "",
+  });
+  console.log(time);
+  const [date, setDate] = useState({
+    isEnable: false,
+    value: "",
+  });
   const dispatch = useDispatch();
 
   const handleTaskType = (type) => {
@@ -40,8 +49,23 @@ const TodoInputField = ({ todo, setTodo, initialState }) => {
             placeholder="What is your next task?"
           />
           <div className="input__iconsContainer">
-            <AccessAlarmsIcon className="input__icon" />
-            <CalendarMonthIcon className="input__icon" />
+            {/* {date.isEnable ? (
+              <input type="text" className="input_values" />
+            ) : (
+              <CalendarMonthIcon
+                className="input__icon"
+                onClick={() => setDate({ ...date, isEnable: true })}
+              />
+            )}
+            {time.isEnable ? (
+              <input type="text" className="input_values" />
+            ) : (
+              <AccessAlarmsIcon
+                className="input__icon"
+                onClick={() => setTime({ ...time, isEnable: true })}
+              />
+            )} */}
+
             <button type="submit">
               <SendIcon className="input__icon" />
             </button>

@@ -30,6 +30,8 @@ export const todoListSlice = createSlice({
       const taskType = action.payload;
       if (taskType.toLowerCase() === "all") {
         state.todos = state.data;
+      } else if (taskType.toLowerCase() === "completed") {
+        state.todos = state.data.filter((todo) => todo.isCompleted);
       } else {
         state.todos = state.data.filter((todo) => todo.taskType === taskType);
       }

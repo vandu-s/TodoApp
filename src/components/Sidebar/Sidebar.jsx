@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Avatar } from "@mui/material";
 import TaskIcon from "@mui/icons-material/Task";
-import AssignmentIcon from "@mui/icons-material/Assignment";
-import SettingsIcon from "@mui/icons-material/Settings";
+// import AssignmentIcon from "@mui/icons-material/Assignment";
+// import SettingsIcon from "@mui/icons-material/Settings";
 import CircleIcon from "@mui/icons-material/Circle";
 import { IconButton } from "@mui/material";
 import { filterTodos } from "../../features/slices/todoListSlice";
 import { useDispatch } from "react-redux";
 import category from "../../util/appUtil";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 import "./style.scss";
 
@@ -76,9 +77,18 @@ const Sidebar = () => {
                 <CircleIcon className="circle work__task" />
                 <span>Work</span>
               </li>
+              <li
+                className={`${
+                  active === category.COMPLETED ? "active" : ""
+                } sidebar__taskType`}
+                onClick={() => handleFilterTodos(category.COMPLETED)}
+              >
+                <CheckCircleIcon className="circle all__task" />
+                <span>Completed</span>
+              </li>
             </ul>
           </li>
-          <li className="sidebar__menuItem">
+          {/* <li className="sidebar__menuItem">
             <div>
               <AssignmentIcon className="sidebar__menuIcon disable" />
               <span> Schedule tasks</span>
@@ -89,7 +99,7 @@ const Sidebar = () => {
               <SettingsIcon className="sidebar__menuIcon disable" />
               <span> Settings</span>
             </div>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>

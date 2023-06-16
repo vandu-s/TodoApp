@@ -32,7 +32,7 @@ const ReadTodo = ({
             } circle`}
           />
           <p className="todo__value">{task}</p>
-          <p>8:00PM</p>
+          {/* <p>8:00PM</p> */}
           <div className="todo__icons">
             <IconButton onClick={() => handleTaskComplete(id)}>
               {isCompleted ? (

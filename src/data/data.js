@@ -25,7 +25,7 @@ export const todoList = [
   },
   {
     id: "1686816728670yty00b",
-    task: "attend a wedding",
+    task: "Attend a wedding",
     time: "",
     date: "",
     isCompleted: false,
